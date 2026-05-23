@@ -4,6 +4,8 @@ A command-line interface for [KitchenOwl](https://kitchenowl.org), the self-host
 
 `kowl` lets you manage recipes, shopping lists, meal plans, expenses, and tags entirely from your terminal — useful for scripting, bulk operations, and headless automation.
 
+This was YOLOed to solve a particular personal use case.
+
 ## Installation
 
 ```bash
@@ -49,7 +51,7 @@ Global flags `--json` and `--yaml` switch all output to machine-readable format.
 kowl recipe list
 kowl recipe get RECIPE_ID
 kowl recipe search "pasta"
-kowl recipe create --name "Tomato Soup" --cook-time 25 --yields 4
+kowl recipe create --name "Chicken Piccata" --cook-time 20 --yields 4
 kowl recipe update RECIPE_ID --name "New Name" --yields 2
 kowl recipe update RECIPE_ID --file recipe.yaml   # replace recipe from YAML file
 kowl recipe edit RECIPE_ID                         # open in $EDITOR as YAML
@@ -108,22 +110,28 @@ kowl household list
 `kowl recipe import`, `kowl recipe update --file`, and `kowl recipe edit` all use the same YAML structure:
 
 ```yaml
-name: Tomato Soup
-description: Simple blended soup
+name: Chicken Piccata
+description: Classic Italian chicken with lemon and capers
 time: 30
-cook_time: 25
-prep_time: 5
+cook_time: 20
+prep_time: 10
 yields: 4
-source: https://example.com/recipe
+source: https://example.com/chicken-piccata
 tags:
-  - soup
-  - vegetarian
+  - chicken
+  - italian
 items:
-  - name: Tomatoes
-    description: 6 medium
+  - name: Chicken Breast
+    description: 4 fillets (about 1.5 lbs)
     optional: false
-  - name: Salt
-    description: 1 tsp
+  - name: Capers
+    description: 3 tbsp
+    optional: false
+  - name: Lemon
+    description: 2 lemons, juiced
+    optional: false
+  - name: Butter
+    description: 3 tbsp
     optional: false
 ```
 
@@ -171,7 +179,3 @@ kowl/
     ├── expense.py
     └── tag.py
 ```
-
-## License
-
-MIT
